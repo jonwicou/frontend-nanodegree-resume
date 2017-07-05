@@ -108,28 +108,39 @@ This is empty on purpose! Your code to build the resume will go here.
 	}
 
 	// work
-	var formattedEmployer = null;
-	var formattedTitle = null;
-	var formattedEmployerTitle = null;
-	var formattedDate = null;
-	var formattedDescription = null;
+	function displayWork(){
+		var formattedEmployer = null;
+		var formattedTitle = null;
+		var formattedEmployerTitle = null;
+		var formattedDate = null;
+		var formattedDescription = null;
 
-	for (var i = 0; i < work.jobs.length; i++) {
-		$("#workExperience").append(HTMLworkStart);
-		// 职位和公司名
-		formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
-		formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
-		formattedEmployerTitle = formattedEmployer + formattedTitle;
-		// 工作时间
-		formattedDate = HTMLworkDates.replace("%data%", work.jobs[i].date);
-		// 工作内容
-		formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+		for (var i = 0; i < work.jobs.length; i++) {
+			$("#workExperience").append(HTMLworkStart);
+			// 职位和公司名
+			formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+			formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+			formattedEmployerTitle = formattedEmployer + formattedTitle;
+			// 工作时间
+			formattedDate = HTMLworkDates.replace("%data%", work.jobs[i].date);
+			// 工作内容
+			formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
 
-		// 插入网页
-		$(".work-entry:last").append(formattedEmployerTitle);
-		$(".work-entry:last").append(formattedDate);
-		$(".work-entry:last").append(formattedDescription);
+			// 插入网页
+			$(".work-entry:last").append(formattedEmployerTitle);
+			$(".work-entry:last").append(formattedDate);
+			$(".work-entry:last").append(formattedDescription);
+		}
 	}
+	displayWork();
+
+	// 检测点击坐标
+	$(document).click(function(loc) {
+		var x = loc.pageX;
+		var y = loc.pageY;
+
+		logClicks(x,y);
+	});
 
 
 })()
