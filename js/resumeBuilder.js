@@ -97,8 +97,10 @@ $("#topContacts").append(formattedLocation);
 if(bio.skills.length > 0){
 	$("#header").append(HTMLskillsStart);
 
-	for(skill in bio.skills) {
-		var formattedSkills = HTMLskills.replace("%data%",bio.skills[skill]);
+	var formattedSkills = null;
+
+	for (var i = 0; i < bio.skills.length; i++){
+		formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
 		$("#skills").append(formattedSkills);
 	}
 }
