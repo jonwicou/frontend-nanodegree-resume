@@ -7,7 +7,16 @@ Don't worry, you'll learn what's going on in this file throughout the course. Yo
 Cameron Pittman
 */
 
+// 国际化名字格式按钮
 
+  function inName(name){
+      name = name.trim().split(" ");
+      console.log(name);
+      name[1] = name[1].toUpperCase();
+      name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+
+      return name[0] + " " + name[1];
+    };
 /*
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
@@ -49,7 +58,7 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
+var HTMLonlineClasses = '<h3 class="education-online-entry">Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
@@ -62,6 +71,7 @@ var googleMap = '<div id="map"></div>';
 /*
 The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
+
 $(document).ready(function() {
   $('button').click(function() {
     var $name = $('#name');
@@ -239,11 +249,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
-  //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+window.addEventListener('resize', function(e) {
+  // Make sure the map bounds get updated on page resize
+ map.fitBounds(mapBounds);
+});
