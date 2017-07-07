@@ -43,6 +43,13 @@ var bio = {
         $("#topContacts").append(formattedEmail);
         $("#topContacts").append(formattedGithub);
         $("#topContacts").append(formattedLocation);
+        //footer contacts
+        $("#footerContacts").append(formattedMobile);
+        $("#footerContacts").append(formattedEmail);
+        $("#footerContacts").append(formattedGithub);
+        $("#footerContacts").append(formattedLocation);
+        //Connect
+        $('#lets-connect > h2').html('<a href=mailto:jone_chan@163.com>Let\'s Connect</a>');
 
         //skills
         if (bio.skills.length > 0) {
